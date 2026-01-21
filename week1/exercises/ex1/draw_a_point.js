@@ -13,6 +13,7 @@ function draw() {
     ellipse(412,60, 18,18);
     arc(90,60,80,80,0,HALF_PI);
     arc(190,60,80,80,0,radians(270));
+    ellipse(412,60, 18,18);
 }
 
 
