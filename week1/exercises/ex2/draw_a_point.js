@@ -14,7 +14,8 @@ function draw() {
     arc(90,60,80,80,0,HALF_PI);
     arc(190,60,80,80,0,radians(270));
 }
-
+let myAge = 21;
+window.alert(myAge);
 
 
 
