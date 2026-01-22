@@ -11,7 +11,11 @@ function setup() {
 }
 
 function draw() {
-    background(220);
+    background(230);
+    stroke(40);
+    strokeWeight(2);
+    fill(58, 123, 213);
+    circle(width/2, height/2, min(width,height)*0.4);
 }
 
 
