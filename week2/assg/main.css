@@ -13,13 +13,24 @@ body {
   line-height: 1.6;
   margin: 0 auto;
   padding: 2rem;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 header, footer {
-  background: #29B675;
-  color: white;
-  padding: 1.5rem 2rem;
+  background: #3a4a5a;
+  color: #ffffff;
+  padding: 2rem;
   text-align: center;
+}
+
+main {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
 }
 
 h1 {
