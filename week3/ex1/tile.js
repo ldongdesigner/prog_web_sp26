@@ -24,7 +24,7 @@ function drawTile() {
             tertiaryColor = tertiaryColors[int(random(tertiaryColors.length))];
             stroke(tertiaryColor);
             strokeWeight(1);
-            line (boxX, boxY, 100, 100);
+            line (boxX, boxY, 140, 60);
 
             // Draw concentric circles per grid point
             for (let boxSize = 2; boxSize <= 15; boxSize +=4) {
