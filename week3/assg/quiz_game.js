@@ -10,7 +10,6 @@ const natureQuiz = [
     { question: 'What gas do humans breathe in to stay alive?', answer: 'Oxygen' },
     { question: 'What do we call a place where plants and animals live?', answer: 'Habitat' },
     { question: 'What type of energy comes from wind, sun, or water and does not run out?', answer: 'Renewable energy' }
-];
 
 // Pick a random question
 const randomIndex = Math.round(Math.random() * (natureQuiz.length - 1));
