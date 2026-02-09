@@ -1,43 +1,38 @@
-const squareWidth = 50;
-const squareHeight = 50;
-let squareXPosition = 100;
-let squareYPosition = 0;
+const rectWidth = 75;
+const rectHeight = 75;
+let speed;
+let rectX = 0;
+let rectY;
+
+let clickCount = 0;
 
 function setup() {
     createCanvas(500, 500);
+    rectY = random(height - rectHeight);
+    speed = random(1, 3);
 }
 
 function draw() {
-    background(0);
+    background(155);
+    drawShape();
+    rectX += speed;
+    rectY += speed;
+
+    if (rectX > width) {
+        noLoop();
+        text('Your score was ' + clickCount, 100, 300);
+    }
+}
+
+function mousePressed() {
+    if ((mouseX >= rectX && mouseX <= rectX + rectWidth) && (mouseY >= rectY && mouseY <= rectY + rectHeight)) {
+        clickCount++;
+        console.log('hit', clickCount);
+    }
+}
+
+function drawShape() {
     fill('purple');
-    // ellipse(100, 100, 100);
-    rect(squareXPosition, squareYPosition, squareWidth, squareHeight);
-    squareYPosition += 1;
-    if (squareYPosition > height) {
-        squareYPosition = 0; // restart the game
-        // noLoop(); only run once then stop
-    }
-    
+    rect(rectX, rectY, rectWidth, rectHeight);
 }
-
-function mousePressed () {
-    console.log(mouseX, mouseY);
-    // for a circle
-    // const distance = dist(mouseX, mouseY, 100, 100);
-    // console.log(distance);
-    // if(distance < 50) {
-    //     alert('you hit it');
-    // }
-
-    // rectangle hit testing
-    if ((mouseX >= squareXPosition && mouseX <= squareXPosition + squareWidth) && (mouseY >= squareYPosition && mouseY <= squareYPosition + squareHeight)) {
-        console.log('you hit the X');
-    }
-}
-
-
-
-
-
-
 
