@@ -1,21 +1,21 @@
-// select empty div and assign to a variable
+// Select the empty div
 const myEmptyDiv = document.querySelector('#myEmptyDiv');
 
-// put an hi inside of it
-// create a new element
-const heading = document.createElement('h1');
-heading.innerHTML = 'Hello class! It is a snowy day!';
+// Create a new headline element
+const heading = document.createElement('h2');
+heading.textContent = 'Llamas have excellent taste in mountain views.';
 heading.style.cursor = 'pointer';
-heading.addEventListener('click', handleHeadingClick);
+
+// Append the headline to the div
 myEmptyDiv.appendChild(heading);
-function handleHeadingClick() {
-    // console.log('Heading has been clicked');
-    document.body.style.backgroundColor = 'magenta';
-}
 
-
-
-
-
-
+// Add click event listener
+heading.addEventListener('click', function() {
+    // Toggle background color on each click
+    if (document.body.style.backgroundColor === 'lightgreen') {
+        document.body.style.backgroundColor = 'lightyellow';
+    } else {
+        document.body.style.backgroundColor = 'lightgreen';
+    }
+});
 
