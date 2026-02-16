@@ -1,0 +1,33 @@
+
+html {
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  font-family: Helvetica, Arial, sans-serif;
+  line-height: 1.6;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+header, footer {
+  background: #29B675;
+  color: white;
+  padding: 1.5rem 2rem;
+  text-align: center;
+}
+
+h1 {
+  font-size: 2rem;
+  padding-bottom: 0;
+}
+
+p {
+  font-size: 1rem;
+}
+
