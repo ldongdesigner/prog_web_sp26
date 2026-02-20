@@ -50,7 +50,7 @@ class Bubble {
 
     show() {
         stroke(this.r, this.g, this.b, 150);
-        strokeWeight(2);
+        strokeWeight(5);
         noFill();
         ellipse(this.x, this.y, this.size);
     }
