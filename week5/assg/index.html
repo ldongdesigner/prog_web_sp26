@@ -4,12 +4,69 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewpoint" content="width=device-width, initial-scale=1.0">
-        <title>Memory Card</title>
+        <title>SPARKGRID</title>
+        <link rel="stylesheet" href="main.css" />
     </head>
 
     <body>
+        <div class="page">
+
+            <!-- Top panel: title + instructions -->
+            <div class="panel panel--top">
+                <div class="panel__inner">
+                    <h1 class="title">SPARKGRID</h1>
+
+                    <p>
+                        <strong>Sparkgrid</strong> is a memory game focused on renewable energy and sustainability.
+                        The goal of the game is to match pairs of related images. Some pairs show two versions of the
+                        same idea, while others show connected systems.
+                    </p>
+
+                    <p>
+                        There are <strong>20 cards total (10 pairs)</strong>. Players flip <strong>two cards at a time</strong>
+                        and try to find matching pairs. The theme connects energy, water, air, and environmental systems
+                        that appear in everyday life.
+                    </p>
+
+                    <h2 class="subtitle">Pairs in this game</h2>
+                    <ul class="pairs">
+                        <li>Sun / Solar Panel</li>
+                        <li>Wind Turbine / Power Tower</li>
+                        <li>Water Filter / Water Drop</li>
+                        <li>Electric Car / EV Charger</li>
+                        <li>Energy Battery / Light Bulb</li>
+                        <li>Smart Tower / Energy Gauge</li>
+                        <li>Power Grid / Solar Roof</li>
+                        <li>Carbon Dioxide / Leaf</li>
+                        <li>Recycling Symbol / Planet Earth</li>
+                        <li>Fuel Cell / Hydrogen</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Middle panel (p5 canvas goes here) -->
+            <div class="panel panel--middle">
+                <div id="game-holder" aria-label="Sparkgrid memory game canvas"></div>
+            </div>
+
+            <!-- Bottom panel: acknowledgement -->
+            <div class="panel panel--bottom">
+                <div class="panel__inner">
+                    <p class="ack">
+                    All icons were sourced from www.flaticon.com and resized to a consistent
+                    web-compatible format.
+                    </p>
+                </div>
+            </div>
+            
+        </div>
+
+        <!-- p5.js (CDN). -->
         <script src="https://cdn.jsdelivr.net/npm/p5@1.11.11/lib/p5.min.js"></script>
-        <script src="cards.js"></script>
+
+        <!-- Game code -->
+        <script src="cards.js"></script>     
+
     </body>
 
 </html>

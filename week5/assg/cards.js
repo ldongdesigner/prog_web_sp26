@@ -60,7 +60,20 @@ function preload() {
 }
 
 function setup() {
-    createCanvas(800, 800);
+    // Compute canvas size to fit the card grid
+    const gridW = GRID_COLS * CARD_W + (GRID_COLS - 1) * GAP;
+    const gridH = GRID_ROWS * CARD_H + (GRID_ROWS - 1) * GAP;
+
+    const canvasW = START_X * 2 + gridW;
+    const canvasH = START_Y + gridH + 10;
+
+    const cnv = createCanvas(canvasW, canvasH);
+
+    // Attach canvas to the middle panel container
+    cnv.parent("game-holder");
+
+    clear(); // make canvas transparent
+
     textAlign(LEFT, TOP);
 
     // totalPairs = number of unique ids
@@ -86,12 +99,12 @@ function setup() {
 }
 
 function draw() {
-    background(0);
-
+    clear(); // clears canvas each frame but keeps it transparent
+    
     // Draw HUD/Score
     fill(255);
     textSize(28);
-    text(`Attempts: ${gameState.attemps}`, 30, 20);
+    text(`Attempts: ${gameState.attempts}`, 30, 20);
     text(`Matches: ${gameState.numMatched}/${gameState.totalPairs}`, 30, 55);
 
     // Draw cards
