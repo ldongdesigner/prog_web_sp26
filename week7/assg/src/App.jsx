@@ -1,66 +1,63 @@
-function App() {
-  const commanderDecks = [
-    {
-      commander: "Alela, Cunning Conqueror",
-      colors: ["blue", "green", "black"],
-      theme: "Fairy typal",
-      hasWon: true,
-      mainGroup: true
-    },
-    {
-      commander: "Kaust, Eyes of the Glade",
-      colors: ["green", "red", "white"],
-      theme: "Face down creatures",
-      hasWon: false,
-      mainGroup: false
-    },
-    {
-      commander: "Esix, Fractal Bloom",
-      colors: ["blue", "green"],
-      theme: "token clones",
-      hasWon: true,
-      mainGroup: true
-    },
-    {
-      commander: "Muldrotha, The Grave Tide",
-      colors: ["blue", "green", "black"],
-      theme: "Graveyard recursion",
-      hasWon: false,
-      mainGroup: false
-    },
-    {
-      commander: "Breya, Etherium Shaper",
-      colors: ["white", "black", "blue", "red"],
-      theme: "Artifacts",
-      hasWon: true,
-      mainGroup: true
-    },
+import "./styles.css";
+import Tea from "./Tea";
 
-  ]
+export default function App() {
+  // Array of tea collection objects
+  const teas = [
+    {
+      name: "Longjing (Dragon Well)",
+      province: "Zhejiang",
+      type: "Green Tea",
+      flavor: "Fresh, chestnut-like",
+      famous: true
+    },
+    {
+      name: "Tieguanyin",
+      province: "Fujian",
+      type: "Oolong Tea",
+      flavor: "Floral, smooth",
+      famous: true
+    },
+    {
+      name: "Da Hong Pao",
+      province: "Fujian",
+      type: "Oolong Tea",
+      flavor: "Roasted, rich",
+      famous: true
+    },
+    {
+      name: "Biluochun",
+      province: "Jiangsu",
+      type: "Green Tea",
+      flavor: "Sweet, fruity",
+      famous: false
+    },
+    {
+      name: "Pu'er",
+      province: "Yunnan",
+      type: "Fermented Tea",
+      flavor: "Earthy, deep",
+      famous: true
+    }
+  ];
+
   return (
-    <>
-      <h1>My Commander Collection</h1>
-      <p>Show decks here</p>
-      <table className="commander-table">
-        <thead>
-          <tr>
-            <th>Commander Name</th>
-            <th>Colors</th>
-            <th>Has Won</th>
-            <th>Usually take</th>
-            <th>Image</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>{commanderDecks[0].commander}</td>
-            <td>{commanderDecks[0].colors.join(", ")}</td>
-            <td>{commanderDecks[0].hasWon}</td>
-          </tr>
-        </tbody>
-      </table>
-    </>
-  )
-}
+    <div className="App">
+      <h1>Famous Chinese Teas</h1>
+      <p className="legend"> Famous teas are highlighted</p>
 
-export default App;
+      <div className="table">
+        <div className="heading row">
+          <div>Name</div>
+          <div>Province</div>
+          <div>Type</div>
+          <div>Flavor</div>
+        </div>
+
+        {teas.map((tea) => (
+          <Tea key={tea.name} tea={tea} />
+        ))}
+      </div>
+    </div>
+  );
+}

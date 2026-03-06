@@ -1,0 +1,36 @@
+.App {
+  font-family: sans-serif;
+  text-align: center;
+  padding: 20px;
+}
+
+.table {
+  max-width: 700px;
+  margin: auto;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 2fr;
+  padding: 8px;
+  border-bottom: 1px solid #ddd;
+}
+
+.heading {
+  font-weight: bold;
+  background-color: #f0f0f0;
+}
+
+.famous {
+  background-color: #fff4cc;
+  font-weight: bold;
+}
+
+.legend {
+  margin-bottom: 15px;
+  color: #555;
+}
+
+.row:hover {
+  background-color: #f9f9f9;
+}
