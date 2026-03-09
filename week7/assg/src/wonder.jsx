@@ -1,5 +1,5 @@
-export default function Wonder(props) {
-  const { name, location, year, image, fact, ancient } = props.wonder;
+export default function Wonder({wonder}) {
+  const { name, location, year, image, fact, ancient } = wonder;
 
   return (
     <article className={`wonder-card ${ancient ? "ancient" : ""}`}>

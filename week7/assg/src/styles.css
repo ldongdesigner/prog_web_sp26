@@ -98,14 +98,6 @@ img {
   text-align: left;
 }
 
-.wonder-top {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 12px;
-  margin-bottom: 14px;
-}
-
 .wonder-content h2 {
   margin: 0;
   font-size: 1.35rem;
@@ -171,8 +163,4 @@ img {
     padding: 8px 14px;
   }
 
-  .wonder-top {
-    flex-direction: column;
-    align-items: flex-start;
-  }
 }
