@@ -1,0 +1,70 @@
+.app {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f4f6f8;
+  padding: 24px;
+}
+
+.card {
+  background: white;
+  width: 420px;
+  max-width: 100%;
+  padding: 28px;
+  border-radius: 16px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+  text-align: center;
+}
+
+h1 {
+  margin: 0 0 20px;
+  font-size: 2rem;
+}
+
+.camelid-img {
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+h2 {
+  margin: 8px 0;
+  font-size: 1.5rem;
+}
+
+.fact {
+  margin: 0 0 20px;
+  line-height: 1.5;
+  color: #444;
+}
+
+.button-group {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+button {
+  padding: 10px 22px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  background: #d9e6f2;
+  transition: transform 0.15s ease, background 0.15s ease;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  background: #c7d9ea;
+}
+
+button.active {
+  background: #7fb3d5;
+  color: white;
+  font-weight: bold;
+}
