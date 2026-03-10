@@ -1,40 +1,52 @@
-import { useState } from 'react'
-
-import './App.css'
-import UsStateComponent from './UsStateComponent';
+import { useState } from "react";
+import './App.css';
+import AnimalComponent from './AnimalComponent';
 
 function App() {
- const [headline, setHeadline] = useState("List of American States");
- const [usStates, setUsStates] = useState([
-  "Alabama", "Alaska", "Arizona", "Arkansas", "California", "Colorado", "Connecticut", "Delaware", "Florida", "Georgia",
-"Hawaii", "Idaho", "Illinois", "Indiana", "Iowa", "Kansas", "Kentucky", "Louisiana", "Maine", "Maryland",
-"Massachusetts", "Michigan", "Minnesota", "Mississippi", "Missouri", "Montana", "Nebraska", "Nevada", "New Hampshire", "New Jersey",
-"New Mexico", "New York", "North Carolina", "North Dakota", "Ohio", "Oklahoma", "Oregon", "Pennsylvania", "Rhode Island", "South Carolina",
-"South Dakota", "Tennessee", "Texas", "Utah", "Vermont", "Virginia", "Washington", "West Virginia", "Wisconsin", "Wyoming"
-]);
+  const [headline, setHeadline] = useState("Leo's List of Animals");
 
-function deleteState(stateName) {
-  const updatedArray = usStates.filter((state) => {
-    return state !== stateName;
-  });
-  setUsStates(updatedArray);
-}
+  const [animals, setAnimals] = useState([
+    "Alpaca",
+    "Llama",
+    "Elephant",
+    "Tiger",
+    "Panda",
+    "Giraffe",
+    "Zebra",
+    "Kangaroo",
+    "Penguin",
+    "Dolphin"
+  ]);
 
-function focusState(stateName) {
-  setHeadline(stateName)
-}
+  function deleteAnimal(animalName) {
+    const updatedAnimals = animals.filter((animal) => animal !== animalName);
+    setAnimals(updatedAnimals);
+  }
+
+  function focusAnimal(animalName) {
+    setHeadline(`Focused animal: ${animalName}`);
+  }
+
   return (
-    <>
-      <h1>{`${headline} is the focus`}</h1>
-      {usStates.map((myState) => {
-        return <UsStateComponent 
-        key={myState} 
-        stateName={myState}
-        deleteFn={deleteState}
-        focusFn={focusState} />
-      })}
-    </>
-  )
-}
+    <div className="app">
+      <h1>{headline}</h1>
 
+      {animals.length === 0 ? (
+        <p className="empty-message">No animals left in the list.</p>
+      ) : (
+        <div className="animal-list">
+          {animals.map((animal) => (
+            <AnimalComponent
+              key={animal}
+              animalName={animal}
+              deleteFn={deleteAnimal}
+              focusFn={focusAnimal}
+            />
+          ))}
+        </div>
+       )}
+    </div>
+  );
+}
+    
 export default App

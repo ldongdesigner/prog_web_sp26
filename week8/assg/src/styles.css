@@ -14,6 +14,10 @@ img {
   max-width: 100%;
 }
 
+button {
+  font: inherit;
+}
+
 .App {
   max-width: 1400px;
   margin: 0 auto;
@@ -96,6 +100,16 @@ img {
   flex: 1;
   padding: 20px;
   text-align: left;
+  display: flex;
+  flex-direction: column;
+}
+
+.wonder-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 8px;
 }
 
 .wonder-content h2 {
@@ -123,6 +137,44 @@ img {
   padding: 5px 9px;
   border-radius: 999px;
   white-space: nowrap;
+}
+
+.button-row {
+  display: flex;
+  gap: 12px;
+  margin-top: auto;
+  padding-top: 16px;
+}
+
+.button-row button {
+  flex: 1;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 14px;
+  cursor: pointer;
+  background-color: #1b5fbf;
+  color: white;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.button-row button:hover {
+  background-color: #154b95;
+  transform: translateY(-1px);
+}
+
+.button-row .delete-button {
+  background-color: #c0392b;
+}
+
+.button-row .delete-button:hover {
+  background-color: #992d22;
+}
+
+.empty-message {
+  text-align: center;
+  font-size: 1.15rem;
+  color: #425466;
+  margin-top: 40px;
 }
 
 /* Tablet */
@@ -163,4 +215,7 @@ img {
     padding: 8px 14px;
   }
 
+  .button-row {
+    flex-direction: column;
+  }
 }
