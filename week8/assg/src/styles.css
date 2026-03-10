@@ -1,0 +1,166 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: linear-gradient(to bottom, #f4f7fb, #e8eef6);
+  color: #1f2933;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+.App {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 40px 24px 60px;
+}
+
+.page-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.page-header h1 {
+  margin: 0 0 12px;
+  font-size: 2.4rem;
+  color: #1b365d;
+}
+
+.intro {
+  max-width: 760px;
+  margin: 0 auto 18px;
+  line-height: 1.6;
+  font-size: 1.05rem;
+  color: #425466;
+}
+
+.legend {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background-color: #ffffff;
+  padding: 10px 16px;
+  border-radius: 999px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  font-size: 0.95rem;
+}
+
+.legend-box {
+  width: 18px;
+  height: 18px;
+  background-color: #fff4cc;
+  border: 1px solid #e2c86b;
+  border-radius: 4px;
+  display: inline-block;
+}
+
+.wonder-list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 26px;
+}
+
+.wonder-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background-color: #ffffff;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.wonder-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 30px rgba(0, 0, 0, 0.14);
+}
+
+.wonder-card.ancient {
+  background-color: #fffaf0;
+  border: 2px solid #f0d98c;
+}
+
+.wonder-image {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+}
+
+.wonder-content {
+  flex: 1;
+  padding: 20px;
+  text-align: left;
+}
+
+.wonder-content h2 {
+  margin: 0;
+  font-size: 1.35rem;
+  line-height: 1.25;
+  color: #183153;
+}
+
+.wonder-content p {
+  margin: 10px 0;
+  line-height: 1.5;
+}
+
+.label {
+  font-weight: bold;
+  color: #0f2747;
+}
+
+.tag {
+  background-color: #f3d46b;
+  color: #4f3b00;
+  font-size: 0.8rem;
+  font-weight: bold;
+  padding: 5px 9px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+/* Tablet */
+@media (max-width: 1000px) {
+  .wonder-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .wonder-image {
+    height: 240px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .App {
+    padding: 30px 16px 50px;
+  }
+
+  .page-header h1 {
+    font-size: 1.9rem;
+  }
+
+  .intro {
+    font-size: 1rem;
+  }
+
+  .wonder-list {
+    grid-template-columns: 1fr;
+  }
+
+  .wonder-image {
+    height: 220px;
+  }
+
+  .legend {
+    font-size: 0.9rem;
+    padding: 8px 14px;
+  }
+
+}
