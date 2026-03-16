@@ -83,7 +83,7 @@ function App() {
 
   function deleteWonder(id) {
     setWonders((currentWonders) =>
-      currentWonders.filter((wonder) => wonder.id !==id)
+      currentWonders.filter((wonder) => wonder.id !== id)
     );
   }
 
@@ -116,8 +116,8 @@ function App() {
   }
 
   function resetWonders() {
-    setWonders([...initialWonders]);
-    setSortOrder("default");
+  setWonders(initialWonders.map((wonder) => ({ ...wonder, id: nanoid() })));
+  setSortOrder("default");
   } 
 
   const displayedWonders = [...wonders];
