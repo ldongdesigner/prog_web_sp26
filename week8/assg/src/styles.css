@@ -63,6 +63,38 @@ button {
   display: inline-block;
 }
 
+.top-controls {
+  margin-top: 18px;
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.reset-button,
+.top-controls select {
+  font: inherit;
+  padding: 10px 14px;
+  border-radius: 10px;
+}
+
+.reset-button {
+  border: none;
+  background-color: #2c7a4b;
+  color: white;
+  cursor: pointer;
+}
+
+.reset-button:hover {
+  background-color: #215d39;
+}
+
+.top-controls select {
+  border: 1px solid #c9d4e2;
+  background-color: white;
+  color: #1f2933;
+}
+
 .wonder-list {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
