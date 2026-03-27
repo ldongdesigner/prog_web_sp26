@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { nanoid } from "nanoid";
+import { useForm } from "react-hook-form";
 import "./styles.css";
 import Wonder from "./Wonder";
 
@@ -77,6 +78,166 @@ const initialWonders = [
   }
 ];
 
+function NewWonderForm({ addWonderFn }) {
+  const {
+    register,
+    handleSubmit,
+    reset,
+    setError,
+    clearErrors,
+    formState: { errors }
+  } = useForm({
+    defaultValues: {
+      name: "",
+      location: "",
+      year: "",
+      fact: "",
+      ancient: false,
+      imageFile: null
+    }
+  });
+
+  const [formMessage, setFormMessage] = useState("");
+  const fileInputRef = useRef(null);
+
+  function convertFileToDataUrl(file) {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload = () => resolve(reader.result);
+      reader.onerror = () => reject(new Error("Could not read image file."));
+      reader.readAsDataURL(file);
+    });
+  }
+
+  async function handleSubmitJob(data) {
+    setFormMessage("");
+    clearErrors("root");
+
+    const filledRequiredCount = [data.name, data.location].filter(
+      (value) => value && value.trim() !== ""
+    ).length;
+
+    if (filledRequiredCount < 2) {
+      setError("root", {
+        type: "manual",
+        message: "Please fill in at least two required fields: name and location."
+      });
+      return;
+    }
+
+    const uploadedFile = data.imageFile?.[0] || null;
+
+    if (uploadedFile && uploadedFile.size >= 1024 * 1024) {
+      setError("imageFile", {
+        type: "manual",
+        message: "Image must be smaller than 1 MB."
+      });
+      return;
+    }
+
+    let imageSrc = "";
+    if (uploadedFile) {
+      imageSrc = await convertFileToDataUrl(uploadedFile);
+    }
+
+    const newWonder = {
+      name: data.name.trim(),
+      location: data.location.trim(),
+      year: data.year.trim(),
+      fact: data.fact.trim(),
+      image: imageSrc,
+      ancient: data.ancient
+    };
+
+    addWonderFn(newWonder);
+    reset();
+    if (fileInputRef.current) {
+      fileInputRef.current.value = "";
+    }
+    setFormMessage("New wonder added successfully.");
+  }
+
+  return (
+    <div className="form-wrapper">
+      <h2>Add Your Own Wonder</h2>
+      <form onSubmit={handleSubmit(handleSubmitJob)} className="wonder-form">
+        <div className="form-group">
+          <label htmlFor="name">Wonder Name *</label>
+          <input
+            id="name"
+            type="text"
+            placeholder="Enter wonder name"
+            {...register("name")}
+          />
+        </div>
+
+        <div className="form-group">
+          <label htmlFor="location">Location *</label>
+          <input
+            id="location"
+            type="text"
+            placeholder="Enter location"
+            {...register("location")}
+          />
+        </div>
+
+        <div className="form-group">
+          <label htmlFor="year">Year</label>
+          <input
+            id="year"
+            type="text"
+            placeholder="Example: 250 BCE or 2026 CE"
+            {...register("year")}
+          />
+        </div>
+
+        <div className="form-group">
+          <label htmlFor="fact">Key Fact</label>
+          <textarea
+            id="fact"
+            rows="4"
+            placeholder="Write a short fact about the wonder"
+            {...register("fact")}
+          />
+        </div>
+
+        <div className="form-group">
+          <label htmlFor="imageFile">Upload Image (less than 1 MB)</label>
+          <input
+            id="imageFile"
+            type="file"
+            accept="image/*"
+            ref={fileInputRef}
+            {...register("imageFile", {
+              validate: {
+                fileSize: (files) => {
+                  if (!files || files.length === 0) return true;
+                  return files[0].size < 1024 * 1024 || "Image must be smaller than 1 MB.";
+                }
+              }
+            })}
+          />
+          {errors.imageFile && (
+            <p className="form-error">{errors.imageFile.message}</p>
+          )}
+        </div>
+
+        <div className="form-group checkbox-group">
+          <label htmlFor="ancient">
+            <input id="ancient" type="checkbox" {...register("ancient")} />
+            Mark as ancient/historic period
+          </label>
+        </div>
+
+        {errors.root && <p className="form-error">{errors.root.message}</p>}
+        {formMessage && <p className="form-success">{formMessage}</p>}
+
+        <button type="submit">Add Wonder</button>
+      </form>
+    </div>
+  );
+}
+
 function App() {
   const [wonders, setWonders] = useState(initialWonders);
   const [sortOrder, setSortOrder] = useState("default");
@@ -119,6 +280,20 @@ function App() {
   setWonders(initialWonders.map((wonder) => ({ ...wonder, id: nanoid() })));
   setSortOrder("default");
   } 
+
+  function addWonderFn(data) {
+    const newWonder = {
+      id: nanoid(),
+      name: data.name || "Untitled Wonder",
+      location: data.location || "Unknown location",
+      year: data.year || "Unknown year",
+      fact: data.fact || "No fact provided yet.",
+      image: data.image || "https://via.placeholder.com/800x500?text=No+Image",
+      ancient: data.ancient || false
+    };
+
+    setWonders((currentWonders) => [...currentWonders, newWonder]);
+  }
 
   const displayedWonders = [...wonders];
 
@@ -176,6 +351,8 @@ function App() {
           ))}
         </section>
       )}
+
+      <NewWonderForm addWonderFn={addWonderFn} />
     </div>
   );
 }
