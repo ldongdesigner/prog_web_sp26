@@ -306,11 +306,9 @@ function App() {
   return (
     <div className="App">
       <header className="page-header">
-        <h1>New Seven Wonders of the World</h1>
+        <h1>Beyond Seven Wonders</h1>
         <p className="intro">
-          This collection highlights the seven monuments chosen in the 2007 New
-          Seven Wonders campaign. Each card shows the wonder&apos;s image, location,
-          year, and a key fact. Use the buttons to duplicate or remove a card.
+          This collection highlights the seven monuments selected in the 2007 New Seven Wonders campaign. Each card presents the wonder's image, location, year, and a key fact. You are invited to upload a wonder you believe deserves a place among the top ten. Use the buttons to duplicate or remove a card.
         </p>
         <p className="legend">
           <span className="legend-box"></span>
