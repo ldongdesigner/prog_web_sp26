@@ -1,5 +1,121 @@
 #root {
   margin: 0 auto;
-  padding: 2rem;
+  padding: 0;
   text-align: center;
+}
+
+.site-header {
+  padding: 1.5rem 1rem 1rem;
+  border-bottom: 1px solid var(--border);
+  background: linear-gradient(to bottom, var(--accent-bg), transparent);
+}
+
+.site-title {
+  margin-bottom: 1rem;
+  font-size: 1.6rem;
+}
+
+.nav-list {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  padding: 0;
+  margin: 0.5rem 0 0;
+  flex-wrap: wrap;
+}
+
+.nav-link {
+  display: inline-block;
+  padding: 0.7rem 1.1rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  text-decoration: none;
+  color: var(--text-h);
+  font-weight: 600;
+  transition: 0.25s ease;
+  background: var(--bg);
+}
+
+.nav-link:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow);
+  color: var(--accent);
+}
+
+.nav-link.active {
+  background: var(--accent);
+  color: white;
+  border-color: var(--accent);
+}
+
+.page-content {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem 1.25rem 3rem;
+}
+
+.card {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  padding: 2rem;
+  margin: 1rem auto 0;
+  box-shadow: var(--shadow);
+  text-align: left;
+  max-width: 820px;
+}
+
+.card h1,
+.card h3 {
+  text-align: center;
+}
+
+.card h1 {
+  margin-bottom: 1rem;
+}
+
+.card h3 {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.card p {
+  margin-bottom: 1.1rem;
+  line-height: 1.8;
+}
+
+.animal-page img {
+  display: block;
+  max-width: 100%;
+  width: 320px;
+  height: auto;
+  margin: 1.25rem auto 1.75rem;
+  border-radius: 18px;
+  box-shadow: var(--shadow);
+}
+
+.source {
+  text-align: center;
+  margin-top: 1.5rem;
+}
+
+cite a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+cite a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .card {
+    padding: 1.5rem;
+    border-radius: 18px;
+  }
+
+  .animal-page img {
+    width: 260px;
+  }
 }

@@ -1,9 +1,9 @@
 import alpacaPic from "../assets/alpaca.png";
 export function Alpaca() {
     return (
-        <>
-        <h1>Alpaca</h1>
-        <img src={alpacaPic} alt="alpaca" />
+        <section className="card animal-page">
+        <h1>Alpacas</h1>
+        <img src={alpacaPic} alt="An alpaca" />
         <p>
             The alpaca (Lama pacos) is a species of South American camelid mammal. It is similar to, and often confused with, the llama. However, alpacas are often noticeably smaller than llamas. The two animals are closely related and can successfully crossbreed. Both species are believed to have been domesticated from their wild relatives, the vicuña and guanaco. There are two breeds of alpaca: the Suri alpaca and the Huacaya alpaca.
         </p>
@@ -16,15 +16,15 @@ export function Alpaca() {
         </p>
 
         <p>
-            In the textile industry, "alpaca" primarily refers to the hair of  Peruvian alpacas, but more broadly it refers to a style of fabric originally made from alpaca hair, such as mohair, Icelandic sheep wool, or even high-quality wool from other breeds of sheep. In trade, distinctions are made between alpacas and the several styles of mohair and luster.
+            In the textile industry, "alpaca" primarily refers to the hair of Peruvian alpacas, but more broadly it refers to a style of fabric originally made from alpaca hair, such as mohair, Icelandic sheep wool, or even high-quality wool from other breeds of sheep. In trade, distinctions are made between alpacas and the several styles of mohair and luster.
         </p>
 
         <p>
-            An adult alpaca generally is between 81 and 99 centimetres (32 and 39 inches) in height at the shoulders (withers). They usually weigh between 48 and 90 kilograms (106 and 198 pounds). Raised in the same conditions, the difference in weight can be small with males weighting around 22.3 kg and females 21.3 kg.
+            An adult alpaca generally is between 81 and 99 centimetres (32 and 39 inches) in height at the shoulders (withers). They usually weigh between 48 and 90 kilograms (106 and 198 pounds). Raised in the same conditions, the difference in weight can be small with males weighing around 22.3 kg and females 21.3 kg.
         </p>
-        <p>
-            <cite>- from <a href="https://en.wikipedia.org/wiki/Alpaca" target="_blank">Wikipedia</a></cite>
+        <p className="source">
+            <cite>- from <a href="https://en.wikipedia.org/wiki/Alpaca" target="_blank" rel="noreferrer">Wikipedia</a></cite>
         </p>
-        </>
+        </section>
     )
 }
