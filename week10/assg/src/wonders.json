@@ -1,0 +1,65 @@
+[
+  {
+    "slug": "great-wall-of-china",
+    "name": "Great Wall of China",
+    "location": "China",
+    "year": "700 BCE",
+    "image": "great-wall.jpg",
+    "fact": "A massive wall system built across northern China over many centuries.",
+    "ancient": true
+  },
+  {
+    "slug": "petra",
+    "name": "Petra",
+    "location": "Ma'an, Jordan",
+    "year": "312 BCE",
+    "image": "petra.jpg",
+    "fact": "An ancient city famous for rock-cut architecture and rose-colored stone.",
+    "ancient": true
+  },
+  {
+    "slug": "colosseum",
+    "name": "Colosseum",
+    "location": "Rome, Italy",
+    "year": "80 CE",
+    "image": "colosseum.jpg",
+    "fact": "The largest amphitheater of the Roman Empire, used for public spectacles.",
+    "ancient": true
+  },
+  {
+    "slug": "chichen-itza",
+    "name": "Chichen Itza",
+    "location": "Yucatán, Mexico",
+    "year": "600 CE",
+    "image": "chichen-itza.jpg",
+    "fact": "A major Maya city best known for the pyramid El Castillo.",
+    "ancient": false
+  },
+  {
+    "slug": "machu-picchu",
+    "name": "Machu Picchu",
+    "location": "Cuzco Region, Peru",
+    "year": "1450 CE",
+    "image": "machu-picchu.jpg",
+    "fact": "An Inca mountain citadel set high in the Andes.",
+    "ancient": false
+  },
+  {
+    "slug": "taj-mahal",
+    "name": "Taj Mahal",
+    "location": "Agra, India",
+    "year": "1643 CE",
+    "image": "taj-mahal.jpg",
+    "fact": "A white marble mausoleum built by Shah Jahan for Mumtaz Mahal.",
+    "ancient": false
+  },
+  {
+    "slug": "christ-the-redeemer",
+    "name": "Christ the Redeemer",
+    "location": "Rio de Janeiro, Brazil",
+    "year": "1931 CE",
+    "image": "christ-the-redeemer.jpg",
+    "fact": "A monumental statue standing atop Corcovado Mountain overlooking Rio.",
+    "ancient": false
+  }
+]
