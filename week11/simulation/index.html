@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Simulate — Simple Creek Studies</title>
+  <link rel="stylesheet" href="main.css" />
+</head>
+
+<body>
+  <main class="page">
+    <h1>Theme: Simulate</h1>
+    <p class="intro">
+      Three simple p5.js sketches that simulate creek water in different ways.
+      Click a button to start or pause each sketch.
+    </p>
+
+    <section class="grid">
+      <article class="card">
+        <div class="top">
+          <h2>Sketch 1 — Gentle Flow</h2>
+          <button data-target="holder1">Start / Pause</button>
+        </div>
+        <p>A simple flowing creek made from many short water lines moving to the right.</p>
+        <div id="holder1" class="sketch-holder"></div>
+      </article>
+
+      <article class="card">
+        <div class="top">
+          <h2>Sketch 2 — Flow + Leaves</h2>
+          <button data-target="holder2">Start / Pause</button>
+        </div>
+        <p>A calm creek with water lines and a few leaves drifting across the surface.</p>
+        <div id="holder2" class="sketch-holder"></div>
+      </article>
+
+      <article class="card">
+        <div class="top">
+          <h2>Sketch 3 — Rain Creek</h2>
+          <button data-target="holder3">Start / Pause</button>
+        </div>
+        <p>A faster creek with simple rain lines and quicker moving water.</p>
+        <div id="holder3" class="sketch-holder"></div>
+      </article>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/p5@1.11.3/lib/p5.min.js"></script>
+  <script src="main.js"></script>
+
+  <script>
+    // Toggle play/pause for each sketch instance
+    document.querySelectorAll("button").forEach((button) => {
+      button.addEventListener("click", () => {
+        const id = button.dataset.target;
+        const sketch = window.simpleSketches[id];
+        if (!sketch) return;
+        if (sketch._loop) {
+          sketch.noLoop();
+        } else {
+          sketch.loop();
+        }
+      });
+    });
+  </script>
+</body>
+</html>

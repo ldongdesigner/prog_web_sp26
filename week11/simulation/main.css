@@ -1,0 +1,77 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #e8f4f8;
+  color: #16374a;
+}
+
+.page {
+  width: min(1200px, 94vw);
+  margin: 0 auto;
+  padding: 24px 0 40px;
+}
+
+h1 {
+  margin-bottom: 8px;
+}
+
+.intro {
+  max-width: 900px;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  background: white;
+  border-radius: 16px;
+  padding: 16px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+}
+
+.top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.top h2 {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+button {
+  border: none;
+  background: #1f6b8c;
+  color: white;
+  padding: 10px 14px;
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+.sketch-holder {
+  margin-top: 12px;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid #d7e6ee;
+}
+
+canvas {
+  display: block;
+  width: 100% !important;
+  height: auto !important;
+}
