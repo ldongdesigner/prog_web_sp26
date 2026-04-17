@@ -14,7 +14,7 @@ body {
 
 h1 {
   margin-bottom: 10px;
-  font-size: 48px;
+  font-size: 46px;
 }
 
 .subtitle {
@@ -42,27 +42,4 @@ canvas {
   margin: 0 auto;
   border-radius: 20px;
   box-shadow: 0 8px 22px rgba(0, 0, 0, 0.12);
-}
-
-.slider-inside {
-  position: absolute;
-  width: 190px;
-  text-align: center;
-}
-
-#nature-controls {
-  left: 150px;
-  top: 485px;
-}
-
-#human-controls {
-  right: 150px;
-  top: 485px;
-}
-
-.slider-inside label {
-  display: block;
-  font-size: 15px;
-  color: #31424f;
-  margin-bottom: 8px;
 }

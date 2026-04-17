@@ -4,10 +4,12 @@ let humanSound;
 let natureSlider;
 let humanSlider;
 
-let btnNature = { x: 120, y: 360, w: 150, h: 48, label: "Nature" };
-let btnHuman = { x: 325, y: 360, w: 150, h: 48, label: "Humanity" };
-let btnBoth = { x: 530, y: 360, w: 150, h: 48, label: "Both" };
-let btnStop = { x: 325, y: 425, w: 150, h: 44, label: "Stop" };
+let currentMode = "Stopped";
+
+const btnNature = { x: 120, y: 360, w: 150, h: 50, label: "Nature" };
+const btnHuman = { x: 325, y: 360, w: 150, h: 50, label: "Humanity" };
+const btnBoth = { x: 530, y: 360, w: 150, h: 50, label: "Both" };
+const btnStop = { x: 325, y: 430, w: 150, h: 45, label: "Stop" };
 
 function preload() {
   natureSound = loadSound("water_birds.mp3");
@@ -19,27 +21,13 @@ function setup() {
   canvas.parent("sketch-holder");
   textAlign(CENTER, CENTER);
 
-  let natureControls = createDiv("");
-  natureControls.id("nature-controls");
-  natureControls.class("slider-inside");
-  natureControls.parent("sketch-holder");
-
-  let natureLabel = createElement("label", "Nature Volume");
-  natureLabel.parent(natureControls);
-
   natureSlider = createSlider(0, 1, 0.7, 0.01);
-  natureSlider.parent(natureControls);
-
-  let humanControls = createDiv("");
-  humanControls.id("human-controls");
-  humanControls.class("slider-inside");
-  humanControls.parent("sketch-holder");
-
-  let humanLabel = createElement("label", "Humanity Volume");
-  humanLabel.parent(humanControls);
+  natureSlider.parent("sketch-holder");
+  natureSlider.position(150, 515);
 
   humanSlider = createSlider(0, 1, 0.7, 0.01);
-  humanSlider.parent(humanControls);
+  humanSlider.parent("sketch-holder");
+  humanSlider.position(500, 515);
 }
 
 function draw() {
@@ -52,17 +40,18 @@ function draw() {
   fill(188, 214, 231);
   stroke(105, 140, 160);
   strokeWeight(3);
-  rect(60, 70, 680, 470, 22);
+  rect(60, 70, 680, 500, 22);
 
   natureSound.setVolume(natureSlider.value());
   humanSound.setVolume(humanSlider.value());
 
-  drawTitleArea();
-  drawVisuals();
+  drawTitle();
+  drawCircles();
   drawButtons();
+  drawLabels();
 }
 
-function drawTitleArea() {
+function drawTitle() {
   noStroke();
   fill(30, 40, 50);
   textSize(30);
@@ -70,40 +59,43 @@ function drawTitleArea() {
 
   textSize(17);
   fill(60, 75, 85);
-  text("Select a sound to begin", width / 2, 180);
+  text("Current Mode: " + currentMode, width / 2, 180);
 }
 
-function drawVisuals() {
+function drawCircles() {
+  let natureSize = 130;
+  let humanSize = 130;
+
   if (natureSound.isPlaying()) {
-    fill(104, 180, 140, 220);
-    ellipse(260, 270, 150 + 15 * sin(frameCount * 0.12), 150 + 15 * sin(frameCount * 0.12));
-  } else {
-    fill(130, 190, 160, 170);
-    ellipse(260, 270, 130, 130);
+    natureSize = 150 + 15 * sin(frameCount * 0.12);
   }
 
   if (humanSound.isPlaying()) {
-    fill(255, 183, 120, 220);
-    ellipse(540, 270, 150 + 15 * sin(frameCount * 0.15), 150 + 15 * sin(frameCount * 0.15));
-  } else {
-    fill(245, 190, 140, 170);
-    ellipse(540, 270, 130, 130);
+    humanSize = 150 + 15 * sin(frameCount * 0.15);
   }
+
+  noStroke();
+
+  fill(104, 180, 140, 220);
+  ellipse(260, 270, natureSize, natureSize);
+
+  fill(255, 183, 120, 220);
+  ellipse(540, 270, humanSize, humanSize);
 
   if (natureSound.isPlaying() && humanSound.isPlaying()) {
     fill(235, 210, 140, 180);
-    ellipse(400, 270, 110 + 18 * sin(frameCount * 0.18), 110 + 18 * sin(frameCount * 0.18));
+    let middleSize = 110 + 18 * sin(frameCount * 0.18);
+    ellipse(400, 270, middleSize, middleSize);
+
+    fill(50);
+    textSize(16);
+    text("Harmony", 400, 315);
   }
 
   fill(255);
   textSize(20);
-  text("Nature’s Voice", 260, 270);
-  text("Human Joy", 540, 270);
-
-  fill(60, 75, 85);
-  textSize(14);
-  text("Volume: " + nf(natureSlider.value(), 1, 2), 260, 330);
-  text("Volume: " + nf(humanSlider.value(), 1, 2), 540, 330);
+  text("Nature", 260, 270);
+  text("Humanity", 540, 270);
 }
 
 function drawButtons() {
@@ -130,11 +122,25 @@ function drawButton(btn) {
   text(btn.label, btn.x + btn.w / 2, btn.y + btn.h / 2);
 }
 
+function drawLabels() {
+ fill(60, 75, 85);
+  textSize(15);
+  text("Nature Volume", 225, 505);
+  text("Humanity Volume", 575, 505);
+
+  textSize(14);
+  textStyle(BOLD);
+  text("Volume: " + nf(natureSlider.value(), 1, 2), 260, 330);
+  text("Volume: " + nf(humanSlider.value(), 1, 2), 540, 330);
+}
+
 function isMouseOver(btn) {
-  return mouseX > btn.x &&
-         mouseX < btn.x + btn.w &&
-         mouseY > btn.y &&
-         mouseY < btn.y + btn.h;
+  return (
+    mouseX > btn.x &&
+    mouseX < btn.x + btn.w &&
+    mouseY > btn.y &&
+    mouseY < btn.y + btn.h
+  );
 }
 
 function mousePressed() {
@@ -147,7 +153,7 @@ function mousePressed() {
   } else if (isMouseOver(btnBoth)) {
     playBoth();
   } else if (isMouseOver(btnStop)) {
-    stopAllSounds();
+    stopSounds();
   }
 }
 
@@ -161,7 +167,7 @@ function keyPressed() {
   } else if (key === "b" || key === "B") {
     playBoth();
   } else if (key === "s" || key === "S") {
-    stopAllSounds();
+    stopSounds();
   }
 }
 
@@ -169,12 +175,14 @@ function playNature() {
   if (!natureSound.isPlaying()) {
     natureSound.play();
   }
+  currentMode = "Nature";
 }
 
 function playHuman() {
   if (!humanSound.isPlaying()) {
     humanSound.play();
   }
+  currentMode = "Humanity";
 }
 
 function playBoth() {
@@ -184,13 +192,15 @@ function playBoth() {
   if (!humanSound.isPlaying()) {
     humanSound.play();
   }
+  currentMode = "Both";
 }
 
-function stopAllSounds() {
+function stopSounds() {
   if (natureSound.isPlaying()) {
     natureSound.stop();
   }
   if (humanSound.isPlaying()) {
     humanSound.stop();
   }
+  currentMode = "Stopped";
 }
