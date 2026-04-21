@@ -1,0 +1,42 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: white;
+  color: black;
+}
+
+.page {
+  max-width: 900px;
+  margin: 20px auto;
+  padding: 0 20px;
+}
+
+.top-link {
+  display: inline-block;
+  margin-bottom: 18px;
+  color: #551a8b;
+  font-size: 18px;
+}
+
+h1 {
+  font-size: 64px;
+  margin: 0 0 20px 0;
+  font-weight: 700;
+}
+
+.controls {
+  display: flex;
+  gap: 30px;
+  margin-bottom: 18px;
+}
+
+.controls label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+#canvas-holder canvas {
+  display: block;
+  border: 6px solid black;
+}
