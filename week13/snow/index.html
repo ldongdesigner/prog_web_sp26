@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Snowfall Simulation</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.4/p5.min.js"></script>
+</head>
+<body>
+  <div class="wrapper">
+    <h1>Snowfall Simulation</h1>
+    <p>
+      A p5.js sketch emulates snowfall.
+      Use the sliders to change the snowflake shape, amount, and falling speed.
+    </p>
+
+    <div class="controls">
+      <div class="control-box">
+        <label>Snowflake petals: <span id="petalValue">6</span></label>
+        <div id="petalSliderHolder"></div>
+      </div>
+
+      <div class="control-box">
+        <label>Number of snowflakes: <span id="countValue">80</span></label>
+        <div id="countSliderHolder"></div>
+      </div>
+
+      <div class="control-box">
+        <label>Fall speed: <span id="speedValue">2</span></label>
+        <div id="speedSliderHolder"></div>
+      </div>
+    </div>
+
+    <div id="sketch-holder"></div>
+  </div>
+
+  <script src="sketch.js"></script>
+</body>
+</html>

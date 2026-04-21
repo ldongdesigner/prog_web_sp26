@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Snowfall Natural Emulation</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.4/p5.min.js"></script>
+</head>
+<body>
+  <div class="wrapper">
+    <h1>Snowfall Natural Emulation</h1>
+    <p>
+      This p5.js sketch emulates a natural snowfall process. Use the sliders to control
+      the snowflake petal count, the total number of snowflakes, and the falling speed.
+    </p>
+
+    <div class="controls">
+      <div class="control-group">
+        <label for="petal-holder">Snowflake petals: <span id="petal-value">6</span></label>
+        <div id="petal-holder"></div>
+      </div>
+
+      <div class="control-group">
+        <label for="count-holder">Number of snowflakes: <span id="count-value">120</span></label>
+        <div id="count-holder"></div>
+      </div>
+
+      <div class="control-group">
+        <label for="speed-holder">Fall speed: <span id="speed-value">1.5</span></label>
+        <div id="speed-holder"></div>
+      </div>
+    </div>
+
+    <div id="sketch-holder"></div>
+  </div>
+
+  <script src="sketch.js"></script>
+</body>
+</html>
