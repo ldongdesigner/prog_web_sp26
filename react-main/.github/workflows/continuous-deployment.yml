@@ -1,0 +1,62 @@
+name: CD
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: cd-${{ github.ref }}
+  cancel-in-progress: false
+
+permissions: {}
+
+jobs:
+  gh-pages:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Setup environment
+        uses: ./.github/actions/setup
+
+      - name: Build the demo application
+        run: pnpm build:demo
+
+      - name: Deploy the demo application
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: dist/demo
+          clean: true
+
+  npm:
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
+      packages: write
+    environment: production
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Setup environment
+        uses: ./.github/actions/setup
+        with:
+          registry-url: "https://registry.npmjs.org"
+
+      - name: Build the component
+        run: pnpm build:component
+
+      - name: Run tests
+        run: pnpm test
+
+      - name: Publish to NPM
+        uses: JS-DevTools/npm-publish@v4
+        with:
+          access: "public"
+          provenance: true
+          token: ${{ secrets.NPM_TOKEN }}
