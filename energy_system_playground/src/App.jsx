@@ -45,18 +45,15 @@ function App() {
           <p className="eyebrow">React + p5.js final project</p>
           <h1>Energy System Playground</h1>
           <p className="hero-text">
-            Explore how solar generation, battery storage, and energy demand
-            interact in a simple renewable energy system. Adjust the controls
-            and watch the visual system respond in real time.
+            Energy System Playground is an interactive learning website that lets users explore how solar energy generation, household electricity demand, and battery storage work together in a sustainable energy system. By adjusting the sliders, users can instantly see how sunlight, energy consumption, and battery capacity affect the performance and stability of the grid in real time.
           </p>
         </div>
 
         <div className="hero-note">
           <div className="note-card">
-            <h2>Learning focus</h2>
+            <h2>Sustainability through interaction</h2>
             <p>
-              This project turns sustainability concepts into a clear visual
-              interface for instructors, classmates, and future portfolio use.
+              This project This project uses interactive visualization and animation to demonstrate why renewable solar power and batteries are important for a cleaner and more resilient future. The live simulation encourages users to experiment, compare outcomes, and better understand how energy storage helps balance renewable energy systems.
             </p>
           </div>
         </div>
